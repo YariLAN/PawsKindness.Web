@@ -36,7 +36,8 @@
             BorderWidth="2" 
             ForeColor="#ffffcc" 
             BackColor="LightBlue"
-            AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="PetId" OnSelectedIndexChanged="PetsGridView_SelectedIndexChanged">
+            AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="PetId" 
+            OnSelectedIndexChanged="PetsGridView_SelectedIndexChanged">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="PetId" HeaderText="PetId" InsertVisible="False" ReadOnly="True" SortExpression="PetId" Visible="False" />

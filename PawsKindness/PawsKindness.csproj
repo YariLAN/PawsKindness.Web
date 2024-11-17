@@ -71,6 +71,7 @@
     <Content Include="MainPage.aspx" />
     <Content Include="PetsPage.aspx" />
     <Content Include="EmployeesPage.aspx" />
+    <Content Include="RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +89,7 @@
     <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DbModels\User.cs" />
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,6 +112,12 @@
       <DependentUpon>PetsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SqlHelper.cs" />
     <Compile Include="EmployeesPage.aspx.cs">
       <DependentUpon>EmployeesPage.aspx</DependentUpon>

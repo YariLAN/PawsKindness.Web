@@ -98,6 +98,11 @@
           background-color: #bce4f1;
         }
 
+        .form-error {
+            color: #FF3300;
+            font-size: 12px;
+        }
+
     </style>
 </head>
 <body>
@@ -111,28 +116,61 @@
                 <td class="auto-style3">
                     <table class="auto-style5">
                         <tr>
-                            <td class="auto-style7">Логин</td>
+                            <td class="auto-style7">
+                                <asp:Label ID="LoginLabel" runat="server">Логин</asp:Label>
+                            </td>
                             <td>
                                 <asp:TextBox ID="TextBox1" runat="server" Width="204px"></asp:TextBox>
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style7">Пароль</td>
                             <td>
-                                <asp:TextBox ID="TextBox2" runat="server" Width="203px"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredLog" runat="server"
+                                    ErrorMessage="Логин обязателен"
+                                    EnableClientScript="False"
+                                    ControlToValidate="TextBox1"
+                                    CssClass="form-error">
+                                </asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style7">
-                                <asp:Button ID="Button1" runat="server"  Text="Регистрация" Width="220px" />
+                                <asp:Label ID="PasswordLabel" runat="server">Пароль</asp:Label>
                             </td>
                             <td>
-                                <asp:Button ID="Button2" runat="server" Text="Вход" Width="105px" />
-                                <asp:Button ID="Button3" runat="server" Text="Выход" Width="105px" />
+                                <asp:TextBox TextMode="Password" ID="TextBox2" runat="server" Width="203px"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:RequiredFieldValidator ID="RequiredPassWord" runat="server"
+                                    ErrorMessage="Пароль обязателен"
+                                    EnableClientScript="False"
+                                    ControlToValidate="TextBox2"
+                                    CssClass="form-error">
+                                </asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style7">&nbsp;</td>
+                            <% if (Session["UserId"] == null) { %>
+                                <td class="auto-style7">
+                                    <asp:Button ID="Button1" runat="server" Text="Регистрация" Width="220px" OnClick="Button1_Click" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="Button2" runat="server" Text="Вход" Width="105px" OnClick="LoginBtn_Click" />
+                                </td>
+                            <% } else { %>
+                              <td>
+                                <asp:Label ID="DynamicNameLabel" runat="server"></asp:Label>
+                              </td>
+                              <td>
+                                  <asp:LinkButton ID="ProfileBtn" runat="server">Профиль</asp:LinkButton>
+                              </td>
+                              <td>
+                                <asp:Button ID="ExitButton" runat="server" Text="Выход" Width="105px"  OnClick="ExitBtn_Click" />
+                              </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding: 10px;">
+                                <asp:Label ForeColor="#000000" Font-Size="20px" style="margin-top: 25px;" ID="LabelMessage" runat="server"></asp:Label>
+                            </td>
                             <td>&nbsp;</td>
                         </tr>
                     </table>
