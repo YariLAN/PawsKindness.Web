@@ -72,6 +72,7 @@
     <Content Include="PetsPage.aspx" />
     <Content Include="EmployeesPage.aspx" />
     <Content Include="RegisterPage.aspx" />
+    <Content Include="ProfilePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="EmployeesPage.aspx.designer.cs">
       <DependentUpon>EmployeesPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -82,7 +82,19 @@ namespace PawsKindness
             PasswordLabel.Visible = true;
 
             LabelMessage.Text = "";
+
+            Response.Redirect("MainPage.aspx");
         } 
+
+        protected void ProfileBtn_Click(object sender, EventArgs e)
+        {
+            if (Session["UserId"] is null)
+            {
+                return;
+            }
+
+            Response.Redirect("ProfilePage.aspx");
+        }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
@@ -103,11 +115,6 @@ namespace PawsKindness
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("RegisterPage.aspx");
-        }
-
-        public void UpdateLabelMessage(string msg)
-        {
-            LabelMessage.Text = msg;
         }
     }
 }

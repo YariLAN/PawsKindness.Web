@@ -160,7 +160,7 @@
                                 <asp:Label ID="DynamicNameLabel" runat="server"></asp:Label>
                               </td>
                               <td>
-                                  <asp:LinkButton ID="ProfileBtn" runat="server">Профиль</asp:LinkButton>
+                                  <asp:LinkButton ID="ProfileBtn" runat="server" OnClick="ProfileBtn_Click">Профиль</asp:LinkButton>
                               </td>
                               <td>
                                 <asp:Button ID="ExitButton" runat="server" Text="Выход" Width="105px"  OnClick="ExitBtn_Click" />

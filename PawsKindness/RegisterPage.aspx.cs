@@ -20,6 +20,16 @@ namespace PawsKindness
                 default: return (int)RoleEnum.User;
             };
         }
+
+        public static string ToMap(RoleEnum roleEnum)
+        {
+            switch (roleEnum)
+            {
+                case RoleEnum.User: return RoleConstants.ROLE_USER; 
+                case RoleEnum.Volunteer: return RoleConstants.ROLE_VOLUNTEER;
+                default: return RoleConstants.ROLE_USER;
+            };
+        }
     }
 
     public static class RoleConstants
@@ -46,12 +56,12 @@ namespace PawsKindness
 
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
-           ErrorLabel.Text = "";
+            ErrorLabel.Text = "";
 
-           if (!Page.IsValid)
-           {
-               return;
-           }
+            if (!Page.IsValid)
+            {
+                return;
+            }
 
             var login = LoginBox.Text;
             var email = EmailBox.Text;
