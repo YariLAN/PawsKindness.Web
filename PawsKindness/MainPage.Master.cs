@@ -111,6 +111,11 @@ namespace PawsKindness
         {
             Response.Redirect("EmployeesPage.aspx");
         }
+                    
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MyBookingPage.aspx");
+        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {

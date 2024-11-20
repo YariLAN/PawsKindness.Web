@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
     <Content Include="MainPage.aspx" />
+    <Content Include="MyBookingPage.aspx" />
     <Content Include="PetsPage.aspx" />
     <Content Include="EmployeesPage.aspx" />
     <Content Include="RegisterPage.aspx" />
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="MainPage.Master.designer.cs">
       <DependentUpon>MainPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MyBookingPage.aspx.cs">
+      <DependentUpon>MyBookingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyBookingPage.aspx.designer.cs">
+      <DependentUpon>MyBookingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PetsPage.aspx.cs">
       <DependentUpon>PetsPage.aspx</DependentUpon>

@@ -103,6 +103,11 @@
             font-size: 12px;
         }
 
+        table th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
@@ -193,6 +198,11 @@
                             <tr>
                                 <td style="text-align:center;" >
                                     <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Данные о сотрудниках</asp:LinkButton>
+                                </td>
+                            </tr>                             
+                            <tr>
+                                <td style="text-align:center;" >
+                                    <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Заявки на питомцев</asp:LinkButton>
                                 </td>
                             </tr>
                             <tr>

@@ -31,7 +31,10 @@ namespace PawsKindness
 
             SqlHelper.CompleteConnect(() =>
             {
-                var reader = SqlHelper.CompleteCommand(SQL_SELECT_ALL);
+                string sqlPetsByStatus = 
+                    SQL_SELECT_ALL.Substring(0, SQL_SELECT_ALL.Length - 1) + $" WHERE (st.StatusId = 1);";
+
+                var reader = SqlHelper.CompleteCommand(sqlPetsByStatus);
                 PetsGridView.DataSource = reader;
                 PetsGridView.DataBind();
             });
@@ -49,6 +52,8 @@ namespace PawsKindness
                 DropDownList_Status.DataSource = readerDropDown;
                 DropDownList_Status.DataBind();
             });
+
+            ErrorLabelPetDet.Text = "";
         }
 
         protected void PetsGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,7 +68,50 @@ namespace PawsKindness
                 var reader = SqlHelper.CompleteCommand(sqlPetById);
                 PetDetails.DataSource = reader;
                 PetDetails.DataBind();
-            });   
+            });
+
+            var id = Session["UserId"];
+
+            AdoptPet.Visible = (id != null && DropDownList_Status.SelectedValue == "В поиске жилья");
+        }
+
+        protected void Adopted_Click(object sender, EventArgs e)
+        {
+            var userId = Session["UserId"];
+
+            if (userId is null)
+            {
+                ErrorLabelPetDet.Text = "Вы не авторизованы!";
+                return;
+            }
+
+            var petId = (int)PetDetails.SelectedValue;
+
+            var updt = $"UPDATE Pets SET StatusId = 3 WHERE PetId = {petId}";
+            var resultUpdate = SqlHelper.ExecuteNotQuery(updt);
+            if (resultUpdate <= 0)
+            {
+                ErrorLabelPetDet.Text = "Ошибка. Попробуйте снова";
+                return;
+            }
+            
+            var bookingdate = string.Format(DateTime.Now.ToString(), "yyyy-MM-dd HH:mm:ss.fff");
+
+            var insertAdopted = $"INSERT INTO Adopted (BookingDate, StateAdoptedId, PetId, UserId)" +
+                $" VALUES ('{bookingdate}', 1, {petId}, {userId});";
+
+            var resultInsert = SqlHelper.ExecuteNotQuery(insertAdopted);
+            if (resultInsert > 0)
+            {
+                Session["LabelMessage"] = "Вы успешно создали заявку!";
+
+                Response.Redirect("MyBookingPage.aspx");
+            }
+            else
+            {
+                ErrorLabelPetDet.Text = "Ошибка создания заявки. Попробуйте заново";
+                return;
+            }
         }
 
         protected void Breed_Click(object sender, EventArgs e)

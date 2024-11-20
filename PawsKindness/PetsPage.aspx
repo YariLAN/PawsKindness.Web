@@ -72,4 +72,10 @@
             </Fields>
         </asp:DetailsView>
     </p>
+    <p style="text-align: center;">
+        <asp:Button BackColor="White" ForeColor="Black" ID="AdoptPet" runat="server" Visible="false" Text="Взять питомца" OnClick="Adopted_Click" ></asp:Button>
+    </p>      
+    <p style="text-align: center;">
+        <asp:Label ID="ErrorLabelPetDet" ForeColor="Red" runat="server"></asp:Label>
+    </p>
 </asp:Content>
