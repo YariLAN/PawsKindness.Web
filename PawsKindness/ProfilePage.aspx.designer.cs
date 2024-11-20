@@ -60,24 +60,6 @@ namespace PawsKindness.UserControl
         protected global::System.Web.UI.WebControls.TextBox EmailBox;
 
         /// <summary>
-        /// RequiredFieldValidatorEmail элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически созданное поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorEmail;
-
-        /// <summary>
-        /// RequiredEmail элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически созданное поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RequiredEmail;
-
-        /// <summary>
         /// Label3 элемент управления.
         /// </summary>
         /// <remarks>

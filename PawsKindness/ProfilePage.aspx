@@ -62,23 +62,7 @@
                 <asp:Label ID="Label2" runat="server" CssClass="form-label">Электронная почта</asp:Label>
             </td>
             <td>
-                <asp:TextBox TextMode="Email" ID="EmailBox" runat="server" CssClass="form-input"></asp:TextBox>
-            </td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server"
-                    ErrorMessage="Почта обязательна"
-                    EnableClientScript="False"
-                    ControlToValidate="EmailBox" CssClass="form-error">
-                </asp:RequiredFieldValidator>
-            </td>
-            <td>
-                <asp:RegularExpressionValidator ID="RequiredEmail" runat="server"
-                    ErrorMessage="Не верный формат почты" 
-                    EnableClientScript="False" 
-                    ControlToValidate="EmailBox" 
-                    CssClass="form-error"
-                    ValidationExpression="^\S+@\S+\.\S+$">
-                </asp:RegularExpressionValidator>
+                <asp:TextBox ReadOnly="true" TextMode="Email" ID="EmailBox" runat="server" CssClass="form-input"></asp:TextBox>
             </td>
         </tr>
         <tr>

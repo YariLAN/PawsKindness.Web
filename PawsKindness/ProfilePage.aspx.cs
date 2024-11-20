@@ -1,5 +1,6 @@
 ﻿using PawsKindness.DbModels;
 using System;
+using System.Linq;
 
 namespace PawsKindness.UserControl
 {
@@ -7,6 +8,11 @@ namespace PawsKindness.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Page.IsPostBack)
+            {
+                return;
+            }
+            
             if (Session["UserId"] is null)
                 return;
 
@@ -23,7 +29,9 @@ namespace PawsKindness.UserControl
 
             if (user is null) return;
 
-            NameBox.Text = string.Concat(user.Surname, " ", user.FirstName, " ", user.MiddleName);
+            NameBox.Text = string.IsNullOrEmpty(user.MiddleName)
+                ? string.Concat(user.Surname, " ", user.FirstName)
+                : string.Concat(user.Surname, " ", user.FirstName, " ", user.MiddleName);
             EmailBox.Text = user.Email;
             PhoneBox.Text = user.Phone;
             BirthDayBox.Text = user.BirthDate.ToString("yyyy-MM-dd");
@@ -37,10 +45,41 @@ namespace PawsKindness.UserControl
             RoleRadioList.SelectedIndex = (int)user.Role - 1;    
         }
 
+        private string UPD_USER = @"
+                UPDATE Users 
+                SET Surname = '{0}', FirstName = '{1}', MiddleName='{2}', 
+                    Phone='{3}', BirthDate='{4}', Address='{5}', RoleId={6}
+                WHERE UserId = {7};";
+
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
             if (!Page.IsValid)
             {
+                return;
+            }
+
+            var names = NameBox.Text.Split(' ').ToList();
+            var surname = names[0];
+            var name = names[1];
+            var middleName = names.Count == 2 ? "" : names[2];
+
+            var phone = PhoneBox.Text;
+            var birthDate = string.Format(BirthDayBox.Text, "yyyy-MM-dd HH:mm:ss.fff");
+            var address = AddressBox.Text ?? "";
+            var role = RoleMapper.ToMap(RoleRadioList.Text);
+
+            var id = Session["UserId"].ToString();
+            var updUser = string.Format(UPD_USER, surname, name, middleName, phone, birthDate, address, role, id);
+
+            int rowsAffected = SqlHelper.ExecuteNotQuery(updUser);
+
+            if (rowsAffected > 0)
+            {
+                ErrorLabel.Text = "Вы успешно обновили даннные";
+            }
+            else
+            {
+                ErrorLabel.Text = "Ошибка сохранения. Попробуйте снова";
                 return;
             }
         }

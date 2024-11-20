@@ -109,101 +109,103 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <table style="padding: 10px;" class="auto-style5">
-            <tr>
-                <td style="text-align:center;" class="auto-style6"><img src="Eco-friendly.png"/></td>
-                <td class="auto-style4"><h3 style="text-align: center">Лапки Доброты</h3></td>
-                <td class="auto-style3">
-                    <table class="auto-style5">
-                        <tr>
-                            <td class="auto-style7">
-                                <asp:Label ID="LoginLabel" runat="server">Логин</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TextBox1" runat="server" Width="204px"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="RequiredLog" runat="server"
-                                    ErrorMessage="Логин обязателен"
-                                    EnableClientScript="False"
-                                    ControlToValidate="TextBox1"
-                                    CssClass="form-error">
-                                </asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style7">
-                                <asp:Label ID="PasswordLabel" runat="server">Пароль</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox TextMode="Password" ID="TextBox2" runat="server" Width="203px"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:RequiredFieldValidator ID="RequiredPassWord" runat="server"
-                                    ErrorMessage="Пароль обязателен"
-                                    EnableClientScript="False"
-                                    ControlToValidate="TextBox2"
-                                    CssClass="form-error">
-                                </asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <% if (Session["UserId"] == null) { %>
+        <asp:Panel ID="AuthPanel" runat="server">
+            <table style="padding: 10px;" class="auto-style5">
+                <tr>
+                    <td style="text-align:center;" class="auto-style6"><img src="Eco-friendly.png"/></td>
+                    <td class="auto-style4"><h3 style="text-align: center">Лапки Доброты</h3></td>
+                    <td class="auto-style3">
+                        <table class="auto-style5">
+                            <tr>
                                 <td class="auto-style7">
-                                    <asp:Button ID="Button1" runat="server" Text="Регистрация" Width="220px" OnClick="Button1_Click" />
+                                    <asp:Label ID="LoginLabel" runat="server">Логин</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Button ID="Button2" runat="server" Text="Вход" Width="105px" OnClick="LoginBtn_Click" />
+                                    <asp:TextBox ID="TextBox1" runat="server" Width="204px"></asp:TextBox>
                                 </td>
-                            <% } else { %>
-                              <td>
-                                <asp:Label ID="DynamicNameLabel" runat="server"></asp:Label>
-                              </td>
-                              <td>
-                                  <asp:LinkButton ID="ProfileBtn" runat="server" OnClick="ProfileBtn_Click">Профиль</asp:LinkButton>
-                              </td>
-                              <td>
-                                <asp:Button ID="ExitButton" runat="server" Text="Выход" Width="105px"  OnClick="ExitBtn_Click" />
-                              </td>
-                            <% } %>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="padding: 10px;">
-                                <asp:Label ForeColor="#000000" Font-Size="20px" style="margin-top: 25px;" ID="LabelMessage" runat="server"></asp:Label>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    <table class="auto-style1">
-                        <tr>
-                            <td style="text-align:center;" >
-                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Главная</asp:LinkButton>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center;">
-                                <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Питомцы</asp:LinkButton>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center;" >
-                                <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Данные о сотрудниках</asp:LinkButton>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="placeholder" colspan="2">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-                </td>
-            </tr>
-        </table>
+                                <td>
+                                    <asp:RequiredFieldValidator ID="RequiredLog" runat="server"
+                                        ErrorMessage="Логин обязателен"
+                                        EnableClientScript="False"
+                                        ControlToValidate="TextBox1"
+                                        CssClass="form-error">
+                                    </asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style7">
+                                    <asp:Label ID="PasswordLabel" runat="server">Пароль</asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox TextMode="Password" ID="TextBox2" runat="server" Width="203px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:RequiredFieldValidator ID="RequiredPassWord" runat="server"
+                                        ErrorMessage="Пароль обязателен"
+                                        EnableClientScript="False"
+                                        ControlToValidate="TextBox2"
+                                        CssClass="form-error">
+                                    </asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <% if (Session["UserId"] == null) { %>
+                                    <td class="auto-style7">
+                                        <asp:Button ID="Button1" runat="server" Text="Регистрация" Width="220px" OnClick="Button1_Click" />
+                                    </td>
+                                    <td>
+                                        <asp:Button ID="Button2" runat="server" Text="Вход" Width="105px" OnClick="LoginBtn_Click" />
+                                    </td>
+                                <% } else { %>
+                                  <td>
+                                    <asp:Label ID="DynamicNameLabel" runat="server"></asp:Label>
+                                  </td>
+                                  <td>
+                                      <asp:LinkButton ID="ProfileBtn" runat="server" OnClick="ProfileBtn_Click">Профиль</asp:LinkButton>
+                                  </td>
+                                  <td>
+                                    <asp:Button ID="ExitButton" runat="server" Text="Выход" Width="105px"  OnClick="ExitBtn_Click" />
+                                  </td>
+                                <% } %>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding: 10px;">
+                                    <asp:Label ForeColor="#000000" Font-Size="20px" style="margin-top: 25px;" ID="LabelMessage" runat="server"></asp:Label>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <table class="auto-style1">
+                            <tr>
+                                <td style="text-align:center;" >
+                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Главная</asp:LinkButton>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">
+                                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Питомцы</asp:LinkButton>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;" >
+                                    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Данные о сотрудниках</asp:LinkButton>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="placeholder" colspan="2">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
     </form>
 </body>
 </html>
