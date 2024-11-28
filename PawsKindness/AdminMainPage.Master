@@ -45,57 +45,15 @@
         button{
             border-radius: 50px;
         }
-        
-        .news-feed {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          max-width: 1000px;
-          margin: 0 auto;
-          font-family: Arial, sans-serif;
+
+        .form-error {
+            color: #FF3300;
+            font-size: 12px;
         }
 
-        .news-item {
-          display: flex;
-          gap: 15px;
-          padding: 15px;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          background-color: lightblue;
-        }
-
-        .news-item img {
-          width: 100px;
-          height: 100px;
-          border-radius: 8px;
-          object-fit: cover;
-        }
-
-        .news-content {
-          display: flex;
-          flex-direction: column;
-          gap: 5px;
-          padding: 10px;
-          background-color: #bce4f1;
-        }
-
-        .news-content h4 {
-          margin: 0;
-          color: #333;
-          background-color: #bce4f1;
-        }
-
-        .news-content p {
-          margin: 0;
-          color: #555;
-          font-size: 0.9em;
-          background-color: #bce4f1;
-        }
-
-        .news-date {
-          font-size: 0.8em;
-          color: #888;
-          background-color: #bce4f1;
+        table th {
+            background-color: #f4f4f4;
+            color: #333;
         }
 
     </style>
@@ -111,27 +69,17 @@
                 <td class="auto-style3">
                     <table class="auto-style5">
                         <tr>
-                            <td class="auto-style7" >Логин</td>
-                            <td>
-                                <asp:TextBox ID="TextBox1" Text="admin" runat="server"  Width="203px"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style7">Пароль</td>
-                            <td>
-                                <asp:TextBox ID="TextBox2" Text="admin" runat="server" Width="203px"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
                             <td class="auto-style7">
-                                
+                                <asp:Label ID="AdminLabel" runat="server"></asp:Label>
                             </td>
                             <td>
-                                <asp:Button ID="Button3"  runat="server" Text="Выход" Width="105px" />
+                                <asp:Button ID="Button3"  runat="server" Text="Выход" Width="105px" OnClick="Exit_Click" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style7">&nbsp;</td>
+                            <td colspan="2" style="padding: 10px;">
+                                <asp:Label ForeColor="#000000" Font-Size="20px" style="margin-top: 25px;" ID="LabelMessage" runat="server"></asp:Label>
+                            </td>
                             <td>&nbsp;</td>
                         </tr>
                     </table>
@@ -147,17 +95,12 @@
                         </tr>
                         <tr>
                             <td style="text-align:center;">
-                                <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Питомцы</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Управление карточками питомцев</asp:LinkButton>
                             </td>
                         </tr>
                         <tr>
                             <td style="text-align:center;" >
-                                <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Данные о сотрудниках</asp:LinkButton>
-                            </td>
-                        </tr>
-                            <tr>
-                            <td style="text-align:center;" >
-                                <asp:LinkButton ID="LinkButton4" runat="server" >Управление сотрудниками</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click" >Управление заявками на бронь</asp:LinkButton>
                             </td>
                         </tr>
                         <tr>
@@ -165,7 +108,7 @@
                         </tr>
                     </table>
                 </td>
-                <td class="placeholder" colspan="2">
+                <td colspan="2">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
                 </td>
             </tr>

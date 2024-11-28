@@ -68,8 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
+    <Content Include="AdoptedControlPage.aspx" />
     <Content Include="MainPage.aspx" />
     <Content Include="MyBookingPage.aspx" />
+    <Content Include="PetsControlPage.aspx" />
     <Content Include="PetsPage.aspx" />
     <Content Include="EmployeesPage.aspx" />
     <Content Include="RegisterPage.aspx" />
@@ -90,6 +92,13 @@
     </Compile>
     <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdoptedControlPage.aspx.cs">
+      <DependentUpon>AdoptedControlPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdoptedControlPage.aspx.designer.cs">
+      <DependentUpon>AdoptedControlPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="DbModels\User.cs" />
     <Compile Include="MainPage.aspx.cs">
@@ -112,6 +121,13 @@
     </Compile>
     <Compile Include="MyBookingPage.aspx.designer.cs">
       <DependentUpon>MyBookingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PetsControlPage.aspx.cs">
+      <DependentUpon>PetsControlPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PetsControlPage.aspx.designer.cs">
+      <DependentUpon>PetsControlPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PetsPage.aspx.cs">
       <DependentUpon>PetsPage.aspx</DependentUpon>

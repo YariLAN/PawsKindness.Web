@@ -11,88 +11,70 @@ namespace PawsKindness
 {
 
 
-    public partial class AdminMainPage
+    public partial class AdoptedControlPage
     {
 
         /// <summary>
-        /// head элемент управления.
+        /// AdminAdoptedGridView элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.GridView AdminAdoptedGridView;
 
         /// <summary>
-        /// form1 элемент управления.
+        /// AdoptDetails элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DetailsView AdoptDetails;
 
         /// <summary>
-        /// AdminLabel элемент управления.
+        /// DropDownList_Status элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AdminLabel;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList_Status;
 
         /// <summary>
-        /// Button3 элемент управления.
+        /// SetStatusButton элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button SetStatusButton;
 
         /// <summary>
-        /// LabelMessage элемент управления.
+        /// LabelUser элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelMessage;
+        protected global::System.Web.UI.WebControls.Label LabelUser;
 
         /// <summary>
-        /// LinkButton1 элемент управления.
+        /// UserDetails элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.DetailsView UserDetails;
 
         /// <summary>
-        /// LinkButton2 элемент управления.
+        /// ExitButton элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически созданное поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
-
-        /// <summary>
-        /// LinkButton4 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически созданное поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
-
-        /// <summary>
-        /// ContentPlaceHolder1 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически созданное поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button ExitButton;
     }
 }

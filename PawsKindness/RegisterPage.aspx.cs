@@ -8,6 +8,7 @@ namespace PawsKindness
     {
         User = 1,
         Volunteer = 2,
+        Admin = 3,
     };
 
     public class RoleMapper
@@ -18,6 +19,7 @@ namespace PawsKindness
             {
                 case RoleConstants.ROLE_USER: return (int)RoleEnum.User;
                 case RoleConstants.ROLE_VOLUNTEER: return (int)RoleEnum.Volunteer;
+                case RoleConstants.ROLE_ADMIN: return (int)RoleEnum.Admin;
                 default: return (int)RoleEnum.User;
             };
         }
@@ -37,6 +39,7 @@ namespace PawsKindness
     {
         public const string ROLE_USER = "Пользователь";
         public const string ROLE_VOLUNTEER = "Волонтер";
+        public const string ROLE_ADMIN = "Админ";
     }
 
     public partial class RegisterPage : System.Web.UI.Page

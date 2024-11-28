@@ -61,6 +61,12 @@ namespace PawsKindness
 
             Session["UserId"] = id.Value;
             Session["UserName"] = user.FirstName;
+            
+            if (user.Role == RoleEnum.Admin)
+            {
+                Response.Redirect("AdminPage.aspx");
+                return;
+            }
 
             DynamicNameLabel.Text = $"Hi, {Session["UserName"].ToString()}!";
             LoginLabel.Visible = false;
